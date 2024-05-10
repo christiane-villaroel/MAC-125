@@ -67,11 +67,38 @@ int loopSum(int n){
     }
     return sum;
 }
+
+int recursiveSum(int n){
+    int sum=n;
+    if (n<=1)
+    {
+        return 1;
+    }
+    else{
+        sum+=recursiveSum(--n);
+    }
+    return sum;
+    
+}
+void recursive(int n){
+    if(n/10==0){
+        cout<<n<<endl;
+    }
+    else{
+        cout<<n<<endl;
+        cout<<n%10<<endl;
+        recursive(n/10); 
+    }
+}
 int main (){
    /*  cout<<sum(5)<<endl;
     cout << power(5,4)<<endl;
     toBinary(4);
     cout<<endl; */
-    cout<<loopSum(5);
+    cout<<loopSum(5)<<endl;
+    cout<<"recursive sum:";
+    cout<<recursiveSum(5)<<endl;
+    recursive(123);
+
     return 0;
 }
