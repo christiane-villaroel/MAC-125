@@ -57,11 +57,21 @@ void toBinary(int n){
         cout<<quotient%2;
     } 
 }
-
+int loopSum(int n){
+    int sum =0;
+    while (n>0)
+    {
+        sum +=n;
+        
+        n--;
+    }
+    return sum;
+}
 int main (){
-    cout<<sum(5)<<endl;
+   /*  cout<<sum(5)<<endl;
     cout << power(5,4)<<endl;
-
     toBinary(4);
+    cout<<endl; */
+    cout<<loopSum(5);
     return 0;
 }
