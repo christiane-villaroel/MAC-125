@@ -21,7 +21,7 @@ int sum(int n){
 Write a program that uses a function power(base,exponent) which when invoked returns
 baseexponent
 */
-int power(int base, int exponent){
+/* int power(int base, int exponent){
     if (exponent <=1){
         return 5;
     }
@@ -29,7 +29,7 @@ int power(int base, int exponent){
     int result = base * power(base,exponent-1);
     cout<<"result "<< result<<endl;
     return result;
-}
+} */
 //GET DEVISOR CLASS EXAMPLE
 void get_divisors(int n){
     for (int i = 2; i < n; i++)
@@ -90,6 +90,8 @@ void recursive(int n){
         recursive(n/10); 
     }
 }
+
+int power(int b, int e);
 int main (){
    /*  cout<<sum(5)<<endl;
     cout << power(5,4)<<endl;
@@ -100,5 +102,18 @@ int main (){
     cout<<recursiveSum(5)<<endl;
     recursive(123);
 
+    cout<<"5 to the power 3 is:"<< power(5,3)<<endl;
     return 0;
 }
+int power(int b, int e){
+    int result = b;
+    if(e==0||e==1){
+        return b;
+    }
+    else{
+        result *= power(b,(e-1)); 
+        return result;
+    }
+    return result;
+}
+
