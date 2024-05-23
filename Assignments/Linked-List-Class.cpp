@@ -53,6 +53,9 @@ public:
         }
         return false;
     }
+    Node* findNode(int key) const{
+
+    }
 
     ~LinkedList() {
         Node* current = head;
@@ -75,7 +78,7 @@ int main() {
     list.printList();
     list.insertHead(1);
     list.printList();
-    list.insertAfter(list.find(1), 8); // Assuming findNode is a function that returns a Node* given a value
+    list.insertAfter(list.get(), 8); // Assuming findNode is a function that returns a Node* given a value
     list.printList();
     list.removeAfter(list.find(1)); // Assuming findNode is a function that returns a Node* given a value
     list.printList();
