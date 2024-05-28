@@ -383,7 +383,7 @@ Used typically for dynamic actions in c++.
 In other languages pointers are present, but implicity, automatically done. In C++ needs to 
 be done manually.
 
-`int a=5;` `int *aP=&a` -> ***aP**, is pointing towards the memory location of value **a**.
+`int a=5;` `int *aP=&a` -> `*aP`, is pointing towards the memory location of value `a`.
 **&**-> This ampersand symbol in C++ is a call by reference, here we are referenceing to the variable **a**. 
 `*` -> This is called a pointer, combined with the `&`, we are pointing the vairable `aP` to reference (location) of variable a.
 - Takes a memory address as a value
