@@ -1,57 +1,48 @@
 #include <iostream>
 using namespace std;
+class A{
+    private:
+        int x;
+    public:
+        A();
+        A(int);
+        void printValue();
+        A operator^(A &a);
+};
+A::A(){x=0;}
+A::A(int n){x=n;}
+void A :: printValue(){
+    cout<<"Value = "<<x<<endl;
+}
+A A ::operator^(A &a){
+    A temp;
+    temp = this->x;
+    for(int i =1; i < a.x; i++)
+        temp.x*=this->x;
+    return temp;
+}
 
-class Example {
-private:
-    int value;
-    int othervalue;
-public:
-    Example(): value(1), othervalue(2) {}
-    Example(int v, int o): value(v), othervalue(o) {}
 
-    void print() {
-        cout << "value: " << this->value << endl;
-        cout << "otherValue: " << this->othervalue << endl;
-    }
-
-    // Prefix increment operator overloading
-    Example& operator++() {
-        cout<<"prefix"<<endl;
-        this->value++;
-        this->othervalue++;
-        return *this;
-    }
-
-    // Postfix increment operator overloading
-    Example operator++(int) {
-        cout<<"postfix"<<endl;
-        Example temp = *this;
-        this->value++;
-        this->othervalue++;
-        return temp;
-    }
-    bool operator> (const Example& ex){
-        if(ex.value>this->value)
-            return true;
-       return false;
-    }
+class Rectangle{
+    private:
+        int length; 
+        int width;
+        string name;
+    public:
+        Rectangle():length(1), width(2),name("Rectangle 1"){}
+        Rectangle(int l, int w, string n):length(l), width(w), name(n){}
+        Rectangle operator+(Rectangle &rect){
+            Rectangle temp;
+            temp.length = this->length + rect.length;
+            temp.width = this->width + rect.width;
+            return temp;
+        }
 };
 
 int main(){
-    Example obj1;
-    Example obj2 = Example(10,20);
-    ++obj1;
-    obj1.print();
-    obj1++;
-    obj1.print();
-    if(obj1 > obj2){
-        cout<<"Object 1 is greater than Object 2:\t"<<endl;
-        obj1.print();
+    A a1(2),a2(4),a3;
+    a3 = a1^a2;
+    a3.printValue();
 
-    }
-    else{
-        cout<<"Object 2 is greater than Object 1:\t"<<endl;
-        obj2.print();
-    }
     return 0;
 }
