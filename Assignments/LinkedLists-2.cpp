@@ -16,6 +16,7 @@ public:
     void setValue(int v) { value = v; }
 
     void setNext(Node* n) { next = n; }
+
 };
 
 int main() {
