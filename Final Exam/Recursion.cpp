@@ -2,7 +2,7 @@
 using namespace std;
 int sum(int x);
 int f(int x);
-
+int factorial(int n);
 int main (){
     int number=5;
     string str = "car";
@@ -10,6 +10,7 @@ int main (){
 
     string strCopy= str;
     cout<<strCopy<<endl;
+    cout<<factorial(number);
     while (i < str.length())
     {
         if(str[i]==str[j]){
@@ -25,13 +26,21 @@ int main (){
     
     return 0;
 }
-int sum(int x){
+/* int sum(int x){
     if(x<2)
         return 1;
     else
         return x+sum(x-1);
-}
+} */
 
+int factorial(int n){
+    if(n==0||n==1){
+        return 1;
+    }
+    else{
+        return n*factorial(n-1);
+    }
+}
 int f(int x){
     if(x<2)
         return 1;

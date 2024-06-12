@@ -62,34 +62,26 @@ public:
         }
         cout << endl;
     }
+    void insertTail(int value){
+        Node* temp = head;
+        while(temp!=nullptr){
+            if(temp->getNext()==nullptr){
+                temp->setNext(new Node(value,temp->getNext()));
+                break;
+                }
+            temp= temp->getNext();
+        }
+    }
+    int size(){
+        Node* current=head;
+        int size = 0;
+        while(current!=nullptr){
+            current = current->getNext();
+            size++;
+        }
+        return size;
+    }
 };
-class Rectangle{
-    private:
-        int length,width;
-    public:
-        Rectangle();
-        Rectangle(int l , int w);
-};
-
-Rectangle :: Rectangle():length(2),width(1){}
-Rectangle :: Rectangle(int l, int w):length(l),width(w){}
-template <class T>
-T largest(T one, T two, T three){
-    T max = one;
-    if(max<two)
-        max=two;
-    if(max<three)
-        max=three;
-    return max;
-}
-
-template<>
-Rectangle largest<Rectangle>(Rectangle one, Rectangle two, Rectangle three){
-    Rectangle max = one;
-    
-}
-
-
 
 int main() {
     LinkedList list;
@@ -100,5 +92,8 @@ int main() {
     list.printList();
     list.insertHead(1);
     list.printList();
+    list.insertTail(13);
+    list.printList();
+    cout<<"List size: "<<list.size()<<endl;   
     return 0;
 }

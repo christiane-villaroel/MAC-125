@@ -14,6 +14,7 @@ class Rectangle{
         void setName(char n);
         char getName();
         void displayInfo();
+        bool operator< (Rectangle& r);        
 };
 
 /***** Implementation section *****/
@@ -37,7 +38,9 @@ void Rectangle::displayInfo(){
     cout<<"Length: "<<this->length<<endl;
     cout<<"Area: "<<this->area<<endl;
 };
-
+bool Rectangle :: operator<(Rectangle& r){
+    return (this->area<r.area);
+}
 
 template <typename T>
 T& largest( T& a, T& b, T& c){
@@ -50,7 +53,16 @@ T& largest( T& a, T& b, T& c){
     return Max;
     
 }
+template<typename D>
+class Temp {
+    private:
+    D name;
+    public:
+    Temp(D n):name(n){}
+    void setName(D n){name=n;}
+    void print(){cout<<"template name: "<<name<<endl;}
 
+};
 
 
 int main(){
@@ -66,6 +78,12 @@ int main(){
     
     Rectangle largeRect = largest(x,y,z);
     cout<<"\nThe largest rectangle is "<<largeRect.getName()<<"\n Area: "<<largeRect.getArea() <<endl;
+    if(z<x)
+        cout<<"true"<<endl;
+    else
+        cout<<"false"<<endl;
+    Temp <int> intTemp(2);
+    intTemp.print();
 
-    return 0;
+   return 0;
 }

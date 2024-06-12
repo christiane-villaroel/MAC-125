@@ -21,6 +21,14 @@ class LinkedList{
         void insertHead(int value){
             head = new Node(value,head);
         }
+        ~LinkedList(){
+            Node* current = head;
+            while(current!=nullptr){
+                delete current;
+               current = current->getNext();
+            }
+            cout<<"deleted"<<endl;
+        }
          void printList(){
             Node* current = head;
             while(current!=nullptr){
@@ -62,6 +70,16 @@ class LinkedList{
             current->setNext(node->getNext());
             delete node;
         }
+        void insertTail(int value){
+            Node* temp = head;
+            while(temp!=nullptr){
+                if(temp->getNext()==nullptr){
+                    temp->setNext(new Node(value,temp->getNext()));
+                    break;
+                }
+                temp = temp->getNext();
+            }
+        }
         
 
 };
@@ -79,6 +97,8 @@ int main (){
     list.insertAfter(8,list.getNode(7));
     //list.printList();
     list.deletNode(list.getNode(4));
+    list.printList();
+    list.insertTail(13);
     list.printList();
     
     return 0;
